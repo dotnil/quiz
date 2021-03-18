@@ -2,63 +2,23 @@
 <html>
 
 <head>
-  <title> QUIZZz! </title>
+  <title>QUIZZz!</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="quiz.css" />
 </head>
 
 <body>
-  <div class="grid">
+  <div class="quiz">
 
-    <div class="form">
-      <input class="field" type="number" id="field" placeholder="enter the desired number">
-      <button class="submit" type="submit"> guess! </button>
+    <div class="quiz__form">
+      <input class="quiz__form--field" type="number" id="field" placeholder="enter the desired number" />
+      <button class="quiz__form--submit" type="submit"> guess! </button>
     </div>
 
-    <div class="result"></div>
+    <div class="quiz__result"></div>
   </div>
 
-
-  <script>
-
-    const guessedNumber = Math.floor(Math.random() * 100) + 1
-    let iterations = 10
-
-    function guessNumber(number) {
-      const resultNode = document.querySelector('.result')
-
-      if (iterations == 0) {
-        resultNode.innerText = '🐤  zero iteration left'
-        return
-      }
-
-      iterations--
-
-      resultNode.innerText = `result:, ${number}, guessedNumber:, ${guessedNumber}, iterations:, ${iterations}`
-
-
-      if (number == guessedNumber) {
-        resultNode.innerText = ('winner!')
-        return
-      }
-
-      if (number < guessedNumber) {
-        resultNode.innerText = ('guessedNumber is bigger')
-        return
-      }
-
-      if (number > guessedNumber) {
-        resultNode.innerText = ('guessedNumber is less')
-        return
-      }
-    }
-
-    document.querySelector(".submit").addEventListener("click", e => {
-      let input = document.querySelector('.field')
-      guessNumber(input.value)
-    })
-
-  </script>
+  <script src="quiz.js"></script>
 
 </body>
 
